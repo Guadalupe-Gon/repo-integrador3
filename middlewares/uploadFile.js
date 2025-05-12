@@ -10,11 +10,11 @@ const storage = multer.diskStorage({
 
         let dir;
 
-        if (req.path.includes('products')) {
+        if (req.path.includes('/products')) {
             dir = path.join(__dirname, '../uploads/products');
         }
 
-        if (req.path.includes('users')) {
+        if (req.path.includes('/users')) {
             dir = path.join(__dirname, '../uploads/users');
         }
 

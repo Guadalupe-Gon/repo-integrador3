@@ -62,7 +62,6 @@ function getProductById(req, res) {
     res.send(`Producto con ID: ${productID}`);
 }
 
-
 function deleteProduct(req, res) {
     const productID = req.params.id;
     res.send(`Producto con ID: ${productID} eliminado`);

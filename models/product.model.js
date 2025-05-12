@@ -8,10 +8,14 @@ const productSchema = new Schema({
         trim: true,
         required: true,
     },
-    description: {
+    descriptionShort: {
         type: String,
         trim: true,
         required: true,
+    },
+    descriptionDetailed: {
+        type: String,
+        trim: true,
     },
     price: {
         type: Number,
