@@ -3,7 +3,6 @@ const userController = require('../controllers/user.controller');
 const {isAuth, isAdmin}  = require('../middlewares/isAuth');
 
 
-
 router.get("/users", userController.getUsers)
 
 router.post("/users", userController.createUser)

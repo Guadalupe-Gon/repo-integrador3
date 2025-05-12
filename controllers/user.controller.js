@@ -172,7 +172,6 @@ async function loginUser(req, res) {
 }
 
 
-
 module.exports = {
     getUsers,
     createUser,
