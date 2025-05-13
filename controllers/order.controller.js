@@ -30,6 +30,7 @@ async function checkOrderPrices(products) {
     for (const product of products) {
         
         const productDB = await Product.findById(product.product);
+        
         if (!productDB) {
             throw new Error(`El producto con ID ${product.product} no existe`);
         }
@@ -65,5 +66,6 @@ async function getOrders(req, res) {
 
 module.exports = {
     createOrder,
-    getOrders,
+    checkOrderPrices,
+    getOrders
 };

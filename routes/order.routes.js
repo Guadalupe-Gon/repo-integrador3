@@ -5,6 +5,8 @@ const { isAuth } = require('../middlewares/isAuth');
 
 router.post('/orders', orderController.createOrder);
 
+router.get('/orders/:id', orderController.checkOrderPrices);
+
 router.get('/orders', [isAuth], orderController.getOrders);
 
 
