@@ -2,7 +2,7 @@ const User = require("../models/user.model");
 const bcrypt = require("bcryptjs");
 const salt = 10;
 const jwt = require("jsonwebtoken");
-const SECRET = "Alfabeta1234"
+const SECRET = process.env.SECRET;
 
 
 async function getUsers(req, res) {
