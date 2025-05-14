@@ -3,7 +3,6 @@ const Product = require('../models/product.model');
 
 
 async function createOrder(req, res) {
-
     try {
         const data = req.body;
         const order = new Order(data);
@@ -26,9 +25,7 @@ async function createOrder(req, res) {
 }
 
 async function checkOrderPrices(products) {
-
     for (const product of products) {
-        
         const productDB = await Product.findById(product.product);
         
         if (!productDB) {
@@ -41,9 +38,7 @@ async function checkOrderPrices(products) {
 }
 
 async function getOrders(req, res) {
-
     try {
-
         const id = req.user._id;
         const user = req.user.role === 'admin' ? {} : {user: id};
         

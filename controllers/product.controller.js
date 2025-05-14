@@ -2,9 +2,7 @@ const Product = require("../models/product.model");
 
 
 async function createProduct(req, res) {
-
     try {
-
         const product = new Product(req.body);
 
         if (req.file) {
@@ -27,9 +25,7 @@ async function createProduct(req, res) {
 }
 
 async function getProducts(req, res) {
-
     try {
-
         const page = req.query.page -1 || 0;
         const limit = req.query.limit || 10;
 

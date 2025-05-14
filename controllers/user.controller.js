@@ -15,7 +15,6 @@ async function getUsers(req, res) {
         res.status(200).send(users);
 
     } catch (error) {
-
         console.log(error);
         res.status(500).send("Error al obtener los usuarios");
     }
@@ -23,11 +22,9 @@ async function getUsers(req, res) {
 
 async function createUser(req, res) {
     try {
-
         const user = new User(req.body);
 
         user.role = "user";
-        
         user.password = await bcrypt.hash(user.password, salt);
         
         const newUser = await user.save();
@@ -39,7 +36,6 @@ async function createUser(req, res) {
         });
 
     } catch (error) {
-
         console.log(error),
             res.status(500).send("Error al crear el usuario")
     }
@@ -47,7 +43,6 @@ async function createUser(req, res) {
 
 async function getUserById(req, res) {
     try {
-
         const id = req.params.id;
         const user = await User.findById(id).select({ password: 0, __v: 0 });
 
@@ -96,12 +91,13 @@ async function deleteUserById(req, res) {
 
 async function updateUserById(req, res) { 
     try {
-
         const id = req.params.id;
         const data = req.body;
+        
         data.password = undefined;
         data.updatedAt = Date.now();
-        const userUpdated = await User.findByIdAndUpdate(id, data, {new: true})
+        
+        const userUpdated = await User.findByIdAndUpdate(id, data, { new: true })
         console.log(userUpdated)
 
         if (!userUpdated) {
@@ -125,7 +121,6 @@ async function updateUserById(req, res) {
 
 async function loginUser(req, res) {
     try {
-
         const { email, password } = req.body;
 
         if(!email || !password) {
